@@ -14,4 +14,4 @@ RUN chmod +x reset_db.sh && bash reset_db.sh
 EXPOSE 8000
 
 # CMD specifcies the command to execute container starts running.
-CMD ["/app/runapp_docker.sh"]
+CMD ["/app/run_app_docker.sh"]
