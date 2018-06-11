@@ -103,7 +103,7 @@
        "title" : "How a-boot that",
        "completed":false,
        "start_date":"2014-10-28T17:50:48.961Z",
-       "text":"The CN Tower (French: Tour CN) is a 553.33 m-high (1,815.4 ft) concrete communications and observation tower in Downtown Toronto, Ontario, Canada.[3][6] Built on the former Railway Lands, it was completed in 1976, becoming the world's tallest free-standing structure and world's tallest tower at the time. It held both records for 34 years until the completion of Burj Khalifa and Canton Tower in 2010.",
+       "text":"The CN Tower (French: Tour CN) is a 553.33 m-high (1,815.4 ft) concrete communications and observation tower in Downtown Toronto, Ontario.",
        "project":2
     },
     "model":"taskManager.task",
