@@ -1,0 +1,14 @@
+---
+- name: Deploy encrypted env file 
+  hosts: all
+ 
+  tasks:
+  - name: Copy encrypted .env file into remote system
+    copy: src=../.env dest=/home/deploy_user/.env
+
+  - name: Run Django.nv containers 
+    shell: "docker stop db django.nv && docker rm db django.nv && \
+            docker pull postgres:latest && docker pull django.nv:latest && \
+            docker run -d -p 5432:5432 --restart always --name db postgres:latest && \
+            sleep 10 && \ 
+            docker run -d -p 8000:8000 --env-file .env --link db:db --name django.nv django.nv:latest"

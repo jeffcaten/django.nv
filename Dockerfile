@@ -15,4 +15,5 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 
 # CMD specifcies the command to execute container starts running.
-CMD ["/app/run_app_docker.sh"]
+CMD ["./wait-for-it.sh", "db:5432", "--", "python", "manage.py", "runserver", "0.0.0.0:8000"] 
+ENTRYPOINT ["./entrypoint.sh"]
