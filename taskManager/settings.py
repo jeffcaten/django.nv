@@ -15,6 +15,7 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import environ
+
 root = environ.Path(__file__) - 3 # three folder back (/a/b/c/ - 3 = /)
 env = environ.Env(DEBUG=(bool, True),) # set default values and casting
 environ.Env.read_env() # reading .env file
@@ -24,10 +25,6 @@ SITE_ROOT = root()
 DEBUG = env('DEBUG') # False if not in os.environ
 TEMPLATE_DEBUG = DEBUG
 
-DATABASES = {
-    'default': env.db(), # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'extra': env.db('SQLITE_URL', default='sqlite:////tmp/my-tmp-sqlite.db')
-}
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -75,17 +72,23 @@ FILE_UPLOAD_HANDLERS = (
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-# DATABASE_URL=os.environ('DATABASE_URL')
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
 
 #DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'postgres',
-#        'USER': 'postgres',
-#        'HOST': 'db',
-#        'PORT': 5432,
-#    }
+#    'default': env.db('SQLITE_URL', default='sqlite:////tmp/my-tmp-sqlite.db')
+#    #'default': env.db(), # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
+#    #'extra': env.db('SQLITE_URL', default='sqlite:////tmp/my-tmp-sqlite.db')
 #}
+
+# DATABASE_URL=os.environ('DATABASE_URL')
 
 #DATABASES = {
 #    'default': {
