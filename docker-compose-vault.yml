@@ -12,7 +12,7 @@ vault:
   container_name: vault.server
   image: vault
   ports:
-    - "9200:8200"
+    - "8200:8200"
   volumes:
     - ./vault/config:/mnt/vault/config
     - ./vault/data:/mnt/vault/data
