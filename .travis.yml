@@ -41,6 +41,8 @@ jobs:
         - safety check -r requirements.txt --json > oast-results.json || echo true
     - stage: integration
       env: test=nmap
+      before_script:
+        - sudo apt-get install -y nmap
       script:
         - nmap teachera.io -oX nmap.xml
     - stage: integration
