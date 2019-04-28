@@ -1,7 +1,7 @@
 consul:
   container_name: consul.server
   command: agent -server -bind 0.0.0.0 -client 0.0.0.0 -bootstrap-expect=1
-  image: consul:latest
+  image: consul:1.4.4
   volumes:
     - ./consul/config:/consul/config
   ports:
@@ -10,7 +10,7 @@ consul:
     - "9600:9600/udp"
 vault:
   container_name: vault.server
-  image: vault
+  image: vault:1.0.0
   ports:
     - "8200:8200"
   volumes:
