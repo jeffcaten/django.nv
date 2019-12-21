@@ -12,6 +12,7 @@ RUN chmod +x reset_db.sh && bash reset_db.sh
 
 # EXPOSE port 8000 for communication to/from server
 EXPOSE 8000
+EXPOSE 80
 
 # CMD specifcies the command to execute container starts running.
 CMD ["/app/run_app_docker.sh"]

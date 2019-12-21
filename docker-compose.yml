@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+  django:
+    image: django.nv:1.0
+    ports:
+      - 8000:8000
+  web:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - django
+    ports:
+      - "0.0.0.0:80:80"
