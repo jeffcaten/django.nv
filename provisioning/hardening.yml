@@ -1,7 +1,6 @@
 ---
 - name: Playbook to harden ubuntu OS.
-  hosts: prod
-  remote_user: ubuntu
+  hosts: all
   become: yes
 
   roles:
