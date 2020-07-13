@@ -6,7 +6,8 @@ COPY . /app
 
 WORKDIR /app
 
-RUN apk add --no-cache gawk sed bash grep bc coreutils
+#UN apk add --no-cache gawk sed bash grep bc coreutils
+RUN apk add --no-cache gawk sed bash grep bc coreutils py-cryptography musl-dev libffi-dev openssl-dev python3-dev gcc
 RUN pip install -r requirements.txt
 RUN chmod +x reset_db.sh && bash reset_db.sh
 
